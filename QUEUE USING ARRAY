@@ -1,0 +1,91 @@
+#include<iostream>
+using namespace std;
+#define SIZE 5
+int top = -1;
+int Queue[SIZE];
+
+void Enqueue(int value)
+{
+	if (top == SIZE - 1)
+	{
+		cout << "full queue" << endl;
+	}
+	else
+	{
+		top++;
+		Queue[top] = value;
+		cout << "Queue Index " << top << " , Value " << value << endl;
+	}
+}
+
+void Dequeue()
+{
+	if (top == -1)
+	{
+		cout << "Empty queue" << endl;
+	}
+	else
+	{
+		top--;
+	}
+}
+
+void display()
+{
+	if (top == -1)
+	{
+		cout << "Queue is Empty." << endl;
+	}
+	else
+	{
+		for (int i = top; i >= 0; i--)
+		{
+			cout << Queue[i] << endl;
+		}
+	}
+}
+
+void show_peek()
+{
+	if (top == -1)
+	{
+		cout << "Queue is Empty." << endl;
+	}
+	else
+	{
+		cout << Queue[top] << endl;
+	}
+}
+
+void show_last()
+{
+	if (top == -1)
+	{
+		cout << "Queue is Empty." << endl;
+	}
+	else
+	{
+		cout << Queue[0] << endl;
+	}
+}
+
+int main()
+{
+	Enqueue(5);
+	Enqueue(7);
+	Enqueue(1);
+	Enqueue(2);
+	Enqueue(9);
+	cout << "Queue is:" << endl;
+	display();
+	cout << "Dequeueing process:" << endl;
+	Dequeue();
+	Dequeue();
+	cout << "After dequeueing" << endl;
+	display();
+	cout << "Showing the top most value:" << endl;
+	show_peek();
+	cout << "Showing the last most value" << endl;
+	show_last();
+	return 0;
+}
